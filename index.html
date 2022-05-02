@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Our Love Story</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="css/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+    <div id="content">
+        <div id="code">
+            迎宝，我们已经在一起三个月啦！<br/><br/>
+            时间真的过的很快，在这三个月里，有个人会关心我，纵容我的小调皮，能够有人一起分享生活的小快乐和小感动。想到你，心里是充实的，生活感觉也色彩斑斓了许多<br/><br/>
+            在宝宝面前，我可以自由的做自己，放松又舒服（想起来之前对宝宝的要求，太惭愧了）<br/><br/>
+            本来这个五一假期我有着很多想法，最理想是去海南，想和我的宝贝吹着海风，在海边看落日～<br/><br/>
+            定一个好的民宿，和宝宝一起生活，做做饭，时不时地调戏一下我的小宝贝，提前感受一下婚后生活，还有很多想和宝宝一起完成的<br/><br/>
+            只是这个疫情确实太烦人了，计划从海南改到深圳，最后还去不了了...<br/><br/>
+            五一假期的前一天下班，我没有太多五一长假的快乐，之前有多期待，就有多失落<br/><br/>
+            不过也没办法，现在毕竟是特殊时期，其他严重地区的人，日常生活都有问题，相比之下我们现在已经很幸运了<br/><br/>
+            往后时间很长，现在的困难是暂时的，遇到你是我的幸运，我想好好珍惜你，想和你一直走下去～<br/><br/>
+            迎宝，我爱你，比心
+        </div>
+        <div id="loveHeart">
+            <canvas id="garden"></canvas>
+            <div id="words">
+                <div id="messages">
+                    BabyYing, I have fallen in love with you for
+                    <div id="elapseClock"></div>
+                </div>
+                <div id="loveu">
+                    Love u forever and ever.<br/>
+                    <div class="signature">- haikunxu</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br/>
+        Copyright © 2022 <a href='http://hackerzhou.me'>hackerzhou.me</a> 2021-2022
+    </div>
+</div>
+<script type="text/javascript">
+    var offsetX = $("#loveHeart").width() / 2;
+    var offsetY = $("#loveHeart").height() / 2 - 55;
+    var together = new Date();
+    together.setFullYear(2022, 1, 4);
+    together.setHours(20);
+    together.setMinutes(0);
+    together.setSeconds(0);
+    together.setMilliseconds(0);
+
+    if (!document.createElement('canvas').getContext) {
+        var msg = document.createElement("div");
+        msg.id = "errorMsg";
+        msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+        document.body.appendChild(msg);
+        $("#code").css("display", "none")
+        $("#copyright").css("position", "absolute");
+        $("#copyright").css("bottom", "10px");
+        document.execCommand("stop");
+    } else {
+        setTimeout(function () {
+            startHeartAnimation();
+        }, 42000);
+
+        timeElapse(together);
+        setInterval(function () {
+            timeElapse(together);
+        }, 500);
+
+        adjustCodePosition();
+        $("#code").typewriter();
+    }
+</script>
+</body>
+</html>
